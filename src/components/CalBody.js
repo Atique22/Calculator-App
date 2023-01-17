@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export default function CalculatorBody ({setExpressionCheck}){
-    const [previous, setPrevious] = useState(" ");
 
     const onClickAction = (e) =>{
         console.log("onClickAction calling ");
@@ -15,9 +14,7 @@ export default function CalculatorBody ({setExpressionCheck}){
     return(
    
         <Card.Body>
-        {
-             buttonArray.map((item) =><Button  key={item} onClick={() => onClickAction(`${item}`)} variant="outline-secondary" style={{margin: '0.6rem'}}>{item}</Button>)
-        }
+        {  buttonArray.map((item) =><Button  key={item} onClick={() => onClickAction(`${item}`)} variant="outline-secondary" style={{margin: '0.6rem'}}>{item}</Button>)}
         </Card.Body>
     )
 

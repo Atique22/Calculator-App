@@ -7,12 +7,27 @@ export default function Calculate (){
 
     const [expression, setExpression] = useState('');
     const rapper=(value)=>{
-        setExpression((oldValue)=>{
-            return `${oldValue}${value}`;
-        })
+        if(value.includes("=")){
+            console.log("equal operator  call");
+            console.log(eval(expression));
+            setExpression(eval(expression));
+
+        }else{
+
+            setExpression((oldValue)=>{
+                return `${oldValue}${value}`;
+            })
+        }
+        
     }
     useEffect(()=>{
         console.log("expression call here value is = "+expression);
+        
+        // if(expression.includes("C"))
+        // {
+        //     console.log("CLEAR  "+expression);
+        //     // setExpression(0);
+        // }
     },[expression])
 
     return(
