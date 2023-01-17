@@ -5,7 +5,12 @@ import CalculatorResult from './CalResult';
 
 export default function Calculate (){
 
-    const [expression, setExpression] = useState(0);
+    const [expression, setExpression] = useState('');
+    const rapper=(value)=>{
+        setExpression((oldValue)=>{
+            return `${oldValue}${value}`;
+        })
+    }
     useEffect(()=>{
         console.log("expression call here value is = "+expression);
     },[expression])
@@ -15,7 +20,7 @@ export default function Calculate (){
           <Card style={{ width: '20rem', margin: '1rem'}}>
           <Card.Header>Calculator operators [+,-,/,x]</Card.Header>
             <CalculatorResult result={expression}/>
-            <CalculatorBody setExpressionCheck = {setExpression}/>
+            <CalculatorBody setExpressionCheck = {rapper}/>
           </Card>
         
     )

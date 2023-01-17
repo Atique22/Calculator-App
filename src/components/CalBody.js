@@ -5,13 +5,13 @@ import Card from 'react-bootstrap/Card';
 export default function CalculatorBody ({setExpressionCheck}){
     const [previous, setPrevious] = useState(" ");
 
-
     const onClickAction = (e) =>{
         console.log("onClickAction calling ");
         setExpressionCheck(e);
+       
     }
 
-    let buttonArray = ['C','-','+','/','*',0,1,2,3,4,5,6,7,8,9,'='];
+    const buttonArray = ['C','-','+','/','*',0,1,2,3,4,5,6,7,8,9,'='];
     return(
    
         <Card.Body>
