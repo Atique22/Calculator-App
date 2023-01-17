@@ -14,7 +14,6 @@ export default function Calculate (){
         
           <Card style={{ width: '20rem', margin: '1rem'}}>
           <Card.Header>Calculator operators [+,-,/,x]</Card.Header>
-
             <CalculatorResult result={expression}/>
             <CalculatorBody setExpressionCheck = {setExpression}/>
           </Card>
