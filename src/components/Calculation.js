@@ -5,7 +5,7 @@ import CalculatorResult from './CalResult';
 
 export default function Calculate (){
 
-    const [expression, setExpression] = useState("");
+    const [expression, setExpression] = useState(0);
     useEffect(()=>{
         console.log("expression call here value is = "+expression);
     },[expression])

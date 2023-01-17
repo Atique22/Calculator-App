@@ -5,7 +5,7 @@ export default function CalculatorResult (props){
 
     return(
 
-        <Card.Header>Result = {props.result}</Card.Header>
+        <Card.Header> {props.result}</Card.Header>
     )
 
 }

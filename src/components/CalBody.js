@@ -6,9 +6,7 @@ export default function CalculatorBody ({setExpressionCheck}){
 
     const onClickAction = (e) =>{
         console.log("onClickAction calling ");
-        
         setExpressionCheck(e);
-        console.log("handle function calling "+e);
 
     }
 
