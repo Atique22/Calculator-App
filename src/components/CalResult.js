@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
-export default function CalResult (props){
+export default function CalculatorResult (props){
 
     return(
 
-        <Card.Header>Result = {props.res}</Card.Header>
+        <Card.Header>Result = {props.result}</Card.Header>
     )
 
 }
