@@ -49,7 +49,7 @@ export default function Calculate (){
     return(
         
           <Card style={{ width: '25rem', margin: '10rem'}}>
-          <Card.Header>Calculator operators [+,-,/,x]</Card.Header>
+          <Card.Header>Calculator operators [+,-,/,x,%...]</Card.Header>
             <CalculatorResult result={expression} oldValue={store_value} />
             <CalculatorBody setExpressionCheck = {rapper}/>
           </Card>
