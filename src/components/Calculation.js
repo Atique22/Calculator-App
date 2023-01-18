@@ -7,34 +7,41 @@ export default function Calculate (){
 
     const [expression, setExpression] = useState('');
     const rapper=(value)=>{
-        if(value.includes("=")){
-            console.log("equal operator  call");
-            console.log(eval(expression));
-            setExpression(eval(expression));
 
-        }else{
-
-            setExpression((oldValue)=>{
-                return `${oldValue}${value}`;
-            })
+        try {
+            if(value.includes("=")){
+                console.log("equal operator  call");
+                console.log(eval(expression));
+                setExpression(eval(expression));
+    
+            }else if(value.includes("C")){
+                console.log("clear call");
+                // console.log(eval(expression));
+                setExpression('');
+    
+            }else{
+    
+                setExpression((oldValue)=>{
+                    return `${oldValue}${value}`;
+                })
+            }
+        } catch (error) {
+            alert("Please Enter a valid user input, error -> "+error);
         }
+        
         
     }
     useEffect(()=>{
         console.log("expression call here value is = "+expression);
         
-        // if(expression.includes("C"))
-        // {
-        //     console.log("CLEAR  "+expression);
-        //     // setExpression(0);
-        // }
+        
     },[expression])
 
     return(
         
-          <Card style={{ width: '20rem', margin: '1rem'}}>
+          <Card style={{ width: '20rem', margin: '10rem'}}>
           <Card.Header>Calculator operators [+,-,/,x]</Card.Header>
-            <CalculatorResult result={expression}/>
+            <CalculatorResult result={expression} />
             <CalculatorBody setExpressionCheck = {rapper}/>
           </Card>
         

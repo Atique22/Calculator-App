@@ -13,7 +13,7 @@ export default function CalculatorBody ({setExpressionCheck}){
     return(
    
         <Card.Body>
-        {  buttonArray.map((item) =><Button  key={item} onClick={() => onClickAction(`${item}`)} variant="outline-secondary" style={{margin: '0.6rem'}}>{item}</Button>)}
+        {  buttonArray.map((item) =><Button size='lg' key={item} onClick={() => onClickAction(`${item}`)} variant="outline-secondary" style={{margin: '0.6rem'}}>{item}</Button>)}
         </Card.Body>
     )
 

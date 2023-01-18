@@ -5,7 +5,7 @@ export default function CalculatorResult (props){
 
     return(
         
-        <Card.Header> {props.result}</Card.Header>
+        <Card.Header style={{  padding: '1.5rem'}}> {props.result}</Card.Header>
     )
 
 }
