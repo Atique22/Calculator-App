@@ -6,17 +6,24 @@ import CalculatorResult from './CalResult';
 export default function Calculate (){
 
     const [store_value, setStore_value] = useState('');
-    const [expression, setExpression] = useState('');
+    let [expression, setExpression] = useState('');
     const rapper=(value)=>{
 
         try {
-            if(value.includes("=")){
+
+            if(value.includes("X")){ //backspace
+                
+                expression = expression.substring(0, expression.length-1);
+                setExpression(expression);
+                console.log("backspace is press = "+expression);
+            }
+            else if(value.includes("=")){ //for equal operator
                 console.log("equal operator  call");
                 // console.log(eval(expression));
                 setStore_value(expression);
                 setExpression(window.eval(expression));
     
-            }else if(value.includes("C")){
+            }else if(value.includes("C")){ //for clear..
                 console.log("clear call");
                 // console.log(eval(expression));
                 setExpression('');

@@ -9,10 +9,10 @@ export default function CalculatorBody ({setExpressionCheck}){
         setExpressionCheck(e);  
     }
 
-    const buttonArray = ['C','-','+','/','*',0,1,2,3,4,5,6,7,8,9,'='];
+    const buttonArray = ['C','-','+','/','*','X',0,1,2,3,4,5,6,7,8,9,'='];
     return(
    
-        <Card.Body>
+        <Card.Body style={{ padding: '1.5rem', border: '1px' }}>
         {  buttonArray.map((item) =><Button size='lg' key={item} onClick={() => onClickAction(`${item}`)} variant="outline-secondary" style={{margin: '0.6rem'}}>{item}</Button>)}
         </Card.Body>
     )
