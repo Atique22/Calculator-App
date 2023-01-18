@@ -11,8 +11,8 @@ export default function Calculate (){
         try {
             if(value.includes("=")){
                 console.log("equal operator  call");
-                console.log(eval(expression));
-                setExpression(eval(expression));
+                // console.log(eval(expression));
+                setExpression(window.eval(expression));
     
             }else if(value.includes("C")){
                 console.log("clear call");
