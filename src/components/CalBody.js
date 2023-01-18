@@ -9,7 +9,7 @@ export default function CalculatorBody ({setExpressionCheck}){
         setExpressionCheck(e);  
     }
 
-    const buttonArray = ['C','-','+','/','*','X',0,1,2,3,4,5,6,7,8,9,'='];
+    const buttonArray = ['C','-','+','/','X','*',0,1,2,3,'%',4,5,6,7,'=',8,9];
     return(
    
         <Card.Body style={{ padding: '1.5rem', border: '1px' }}>
