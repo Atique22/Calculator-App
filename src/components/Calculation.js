@@ -5,6 +5,7 @@ import CalculatorResult from './CalResult';
 
 export default function Calculate (){
 
+    const [store_value, setStore_value] = useState('');
     const [expression, setExpression] = useState('');
     const rapper=(value)=>{
 
@@ -12,6 +13,7 @@ export default function Calculate (){
             if(value.includes("=")){
                 console.log("equal operator  call");
                 // console.log(eval(expression));
+                setStore_value(expression);
                 setExpression(window.eval(expression));
     
             }else if(value.includes("C")){
@@ -41,7 +43,7 @@ export default function Calculate (){
         
           <Card style={{ width: '20rem', margin: '10rem'}}>
           <Card.Header>Calculator operators [+,-,/,x]</Card.Header>
-            <CalculatorResult result={expression} />
+            <CalculatorResult result={expression} oldValue={store_value} />
             <CalculatorBody setExpressionCheck = {rapper}/>
           </Card>
         
