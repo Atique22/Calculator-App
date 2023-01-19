@@ -12,7 +12,7 @@ export default function Calculate() {
 
         try {
 
-            if (value.includes("<-")) { //backspace
+            if (value.includes("x")) { //backspace
 
                 expression = expression.substring(0, expression.length - 1);
                 setExpression(expression);
@@ -87,7 +87,7 @@ export default function Calculate() {
 
     return (
 
-        <Card style={{ width: '25rem', margin: '10rem' }}>
+        <Card style={{ width: '20rem', margin: '10rem' }}>
             <Card.Header>Calculator operators [+,-,/,x,%...]</Card.Header>
             <CalculatorResult result={expression} oldValue={storeValue} />
             <CalculatorBody setExpressionCheck={rapper} />
