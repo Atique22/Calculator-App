@@ -16,7 +16,6 @@ export default function CalculatorBody({ setExpressionCheck }) {
     { id: '.', color: 'secondary' },{ id: '0', color: 'secondary' },{ id: '00', color: 'secondary' },{ id: '=', color: 'success' },
     
     ];
-    //,'-','+','/','<-','*',0,1,2,3,'%',4,5,6,7,'=',8,9,'.','00'
     return (
 
         <Card.Body style={{ padding: '1.5rem', border: '1px' }}>
