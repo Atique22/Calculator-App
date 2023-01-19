@@ -18,7 +18,7 @@ export default function CalculatorBody({ setExpressionCheck }) {
     ];
     return (
 
-        <Card.Body style={{ padding: '1.5rem', border: '1px' }}>
+        <Card.Body style={{ padding: '1.5rem', border: '0.5px' }}>
             {buttonArray.map((item, color) => <Button size='lg' key={item.id} onClick={() => onClickAction(`${item.id}`)} variant={item.color} style={{ margin: '0.6rem' }}>{item.id}</Button>)}        
         </Card.Body>
     )
