@@ -11,30 +11,20 @@ export default function Calculate() {
 
     useEffect(() => {
         console.log("expression call here value is = " + expression);
-        // inputActivity();
     }, [expression]);
-
-    // const inputActivity = () => {
-    //     console.log("inputActivity call");
-    //     // let expression = "This is the original string";
-    //  const pattern = /(\*\-)|(\-\+)|(\%\+)|(\/\+)|(\*\+)|(\+\*)|(\-\*)|(\%\*)|(\/\*)|(\*\*)|(\+\%)|(\-\%)|(\%\%)|(\/\%)|(\*\%)|(\+\/)|(\-\/)|(\%\/)|(\/\/)|(\*\/)|(\+\-)|(\-\-)|(\%\-)|(\/\-)|(\+\+)/g;
-    //  expression = expression.replace(pattern, function (match) {
-    //     if ((match === "++")|(match === "-+")|(match === "*+")|(match === "/+")|(match === "%+")) return "+";
-    //     else if ((match === "+-")|(match === "--")|(match === "*-")|(match === "/-")|(match === "%-")) return "-";
-    //     else if ((match === "+%")|(match === "-%")|(match === "*%")|(match === "/%")|(match === "%%")) return "%";
-    //     else if ((match === "+*")|(match === "-*")|(match === "**")|(match === "/*")|(match === "%*")) return "*";
-    //     else if ((match === "+/")|(match === "-/")|(match === "*/")|(match === "//")|(match === "%/")) return "/";
-            
-    //     });
-    //     console.log(expression);
-    //     setExpression(expression);
-    // }
-
+    
+    
     const setWrapper = (value) => {
-
+        const myOperators = ['+','-','*','%','/'];
         try {
 
-            if (value === "x") { //backspace
+            if(myOperators.includes(value) && expression && myOperators.includes(expression[expression.length-1])){
+                expression = expression.substring(0, expression.length - 1);
+                setExpression(expression);
+                setExpression((oldValue) => {
+                    return `${oldValue}${value}`;
+                })
+            }else if (value === "x") { //backspace
 
                 expression = expression.substring(0, expression.length - 1);
                 setExpression(expression);

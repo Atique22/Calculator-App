@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -19,30 +19,32 @@ export default function CalculatorBody({ setExpressionCheck }) {
     //     console.log(expression);
     //     setExpression(expression);
     // }
-    const [oldValue, setOldValue] = useState('');
+    // const [oldValue, setOldValue] = useState('');
 
     const onClickAction = (value) => {
         
-        console.log("onClickAction calling ");
-        console.log("previous value:"+oldValue);
-        console.log("current value:"+value);
+        // console.log("onClickAction calling ");
+        // console.log("previous value:"+oldValue);
+        // console.log("current value:"+value);
 
-        if(value==='C'|value==='x'|value==='='){
-            setExpressionCheck(value);
-            setOldValue(value);
-        }else if(oldValue ==='x' | oldValue === '=' | oldValue === 'C') 
-        {
-            setExpressionCheck(value);
-            setOldValue(value);
-        }else if(isNaN(value) && isNaN(oldValue) && (oldValue !=='x' | oldValue !== '=' | oldValue !== 'C' | value !=='x' | value !== '=' | value !== 'C')) 
-        {
-            setExpressionCheck('x');//so i remove first
-            setExpressionCheck(value);//and now add new vales 
-            console.log("more than one operator call at same time (errors)");
-        }else{
-            setExpressionCheck(value);
-            setOldValue(value);
-        }      
+        // if(value==='C'|value==='x'|value==='='){
+        //     setExpressionCheck(value);
+        //     setOldValue(value);
+        // }else if(oldValue ==='x' | oldValue === '=' | oldValue === 'C') 
+        // {
+        //     setExpressionCheck(value);
+        //     setOldValue(value);
+        // }else if(isNaN(value) && isNaN(oldValue) && (oldValue !=='x' | oldValue !== '=' | oldValue !== 'C' | value !=='x' | value !== '=' | value !== 'C')) 
+        // {
+        //     setExpressionCheck('x');//so i remove first
+        //     setExpressionCheck(value);//and now add new vales 
+        //     console.log("more than one operator call at same time (errors)");
+        // }else{
+        //     setExpressionCheck(value);
+        //     setOldValue(value);
+        // }      
+
+        setExpressionCheck(value);
     }
 
     const buttonArray = [{ value: 'C', color: 'danger' }, { value: '-', color: 'primary' }, { value: '+', color: 'primary' }, { value: 'x', color: 'warning' }, 
@@ -55,7 +57,7 @@ export default function CalculatorBody({ setExpressionCheck }) {
     return (
 
         <Card.Body style={{ padding: '1.5rem', border: '0.5px' }}>
-            {buttonArray.map((index) => <Button size='lg' key={index.value} onClick={() => onClickAction(`${index.value}`)} variant={index.color} style={{ margin: '0.6rem' }}>{index.value}</Button>)}        
+            {buttonArray.map((ButtonItem,index) => <Button size='lg' key={index} onClick={() => onClickAction(`${ButtonItem.value}`)} variant={ButtonItem.color} style={{ margin: '0.6rem' }}>{ButtonItem.value}</Button>)}        
         </Card.Body>
     )
 
