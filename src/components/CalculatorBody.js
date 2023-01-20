@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export default function CalculatorBody({ setExpressionCheck }) {
 
+    // const inputActivity = () => {
+    //     console.log("inputActivity call");
+    //     // let expression = "This is the original string";
+    //  const pattern = /(\*\-)|(\-\+)|(\%\+)|(\/\+)|(\*\+)|(\+\*)|(\-\*)|(\%\*)|(\/\*)|(\*\*)|(\+\%)|(\-\%)|(\%\%)|(\/\%)|(\*\%)|(\+\/)|(\-\/)|(\%\/)|(\/\/)|(\*\/)|(\+\-)|(\-\-)|(\%\-)|(\/\-)|(\+\+)/g;
+    //  expression = expression.replace(pattern, function (match) {
+    //     if ((match === "++")|(match === "-+")|(match === "*+")|(match === "/+")|(match === "%+")) return "+";
+    //     else if ((match === "+-")|(match === "--")|(match === "*-")|(match === "/-")|(match === "%-")) return "-";
+    //     else if ((match === "+%")|(match === "-%")|(match === "*%")|(match === "/%")|(match === "%%")) return "%";
+    //     else if ((match === "+*")|(match === "-*")|(match === "**")|(match === "/*")|(match === "%*")) return "*";
+    //     else if ((match === "+/")|(match === "-/")|(match === "*/")|(match === "//")|(match === "%/")) return "/";
+            
+    //     });
+    //     console.log(expression);
+    //     setExpression(expression);
+    // }
+    const [oldValue, setOldValue] = useState('');
+
     const onClickAction = (value) => {
+        setOldValue(value);
         console.log("onClickAction calling ");
-        setExpressionCheck(value);
+        console.log("previous value:"+oldValue);
+        console.log("current value:"+value);
+        
+        if(value==='C'|value==='x'|value==='='){
+            setExpressionCheck(value);
+        }else if(isNaN(value) && isNaN(oldValue))
+        {
+            console.log("not a number");
+        }else{
+            setExpressionCheck(value);
+        }
+
+       
     }
 
     const buttonArray = [{ value: 'C', color: 'danger' }, { value: '-', color: 'primary' }, { value: '+', color: 'primary' }, { value: 'x', color: 'warning' }, 

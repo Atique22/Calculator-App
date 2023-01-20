@@ -11,24 +11,24 @@ export default function Calculate() {
 
     useEffect(() => {
         console.log("expression call here value is = " + expression);
-        inputActivity();
+        // inputActivity();
     }, [expression]);
 
-    const inputActivity = () => {
-        console.log("inputActivity call");
-        // let expression = "This is the original string";
-        const pattern = /(\*\-)|(\-\+)|(\%\+)|(\/\+)|(\*\+)|(\+\*)|(\-\*)|(\%\*)|(\/\*)|(\*\*)|(\+\%)|(\-\%)|(\%\%)|(\/\%)|(\*\%)|(\+\/)|(\-\/)|(\%\/)|(\/\/)|(\*\/)|(\+\-)|(\-\-)|(\%\-)|(\/\-)|(\+\+)/g;
-     expression = expression.replace(pattern, function (match) {
-        if ((match === "++")|(match === "-+")|(match === "*+")|(match === "/+")|(match === "%+")) return "+";
-        else if ((match === "+-")|(match === "--")|(match === "*-")|(match === "/-")|(match === "%-")) return "-";
-        else if ((match === "+%")|(match === "-%")|(match === "*%")|(match === "/%")|(match === "%%")) return "%";
-        else if ((match === "+*")|(match === "-*")|(match === "**")|(match === "/*")|(match === "%*")) return "*";
-        else if ((match === "+/")|(match === "-/")|(match === "*/")|(match === "//")|(match === "%/")) return "/";
+    // const inputActivity = () => {
+    //     console.log("inputActivity call");
+    //     // let expression = "This is the original string";
+    //  const pattern = /(\*\-)|(\-\+)|(\%\+)|(\/\+)|(\*\+)|(\+\*)|(\-\*)|(\%\*)|(\/\*)|(\*\*)|(\+\%)|(\-\%)|(\%\%)|(\/\%)|(\*\%)|(\+\/)|(\-\/)|(\%\/)|(\/\/)|(\*\/)|(\+\-)|(\-\-)|(\%\-)|(\/\-)|(\+\+)/g;
+    //  expression = expression.replace(pattern, function (match) {
+    //     if ((match === "++")|(match === "-+")|(match === "*+")|(match === "/+")|(match === "%+")) return "+";
+    //     else if ((match === "+-")|(match === "--")|(match === "*-")|(match === "/-")|(match === "%-")) return "-";
+    //     else if ((match === "+%")|(match === "-%")|(match === "*%")|(match === "/%")|(match === "%%")) return "%";
+    //     else if ((match === "+*")|(match === "-*")|(match === "**")|(match === "/*")|(match === "%*")) return "*";
+    //     else if ((match === "+/")|(match === "-/")|(match === "*/")|(match === "//")|(match === "%/")) return "/";
             
-        });
-        console.log(expression);
-        setExpression(expression);
-    }
+    //     });
+    //     console.log(expression);
+    //     setExpression(expression);
+    // }
 
     const setWrapper = (value) => {
 
