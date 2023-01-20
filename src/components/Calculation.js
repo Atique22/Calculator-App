@@ -9,7 +9,12 @@ export default function Calculate() {
     const [storeValue, setStoreValue] = useState('');
     let [expression, setExpression] = useState('');
     const setWrapper = (value) => {
-
+                // Replace specific input here /\+|\-|\*|\%|\//
+                // expression = expression.replace(/\--|\+-|\%-|\*-|\/-/, '-');
+                expression = expression.replace(/\-+|\++|\%+|\*+|\/+/, '+');
+                // expression = expression.replace(/\-%|\+%|\%%|\*%|\/%/, '%');
+                // expression = expression.replace(/\-*|\+*|\%*|\**|\/*/, '*');
+                setExpression(expression);
         try {
 
             if (value==="x") { //backspace
@@ -22,11 +27,6 @@ export default function Calculate() {
                 console.log("equal operator  call");
                 // console.log(eval(expression));
                 setStoreValue(expression);
-
-
-                // const operators = ["+", "-", "/", "%", "*"];
-                // const tokens = expression.split(/\b/);
-                // const stack = [];
 
                 // Split input into an array of numbers and operators
                 var elements = expression.split(/\+|\-|\*|\%|\//);
@@ -63,7 +63,7 @@ export default function Calculate() {
                 }
                     setExpression(result);
                 
-            } else if (value.includes("C")) { //for clear..
+            } else if (value==="C") { //for clear..
                 console.log("clear call");
                 // console.log(eval(expression));
                 setExpression('');
@@ -82,11 +82,7 @@ export default function Calculate() {
     }
     useEffect(() => {
         console.log("expression call here value is = " + expression);
-        if(expression.includes('--+'))
-        {
-            alert("something wrong happen")
-            expression= expression.replace('-');
-        }
+
 
     }, [expression])
 

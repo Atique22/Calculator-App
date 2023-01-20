@@ -9,7 +9,7 @@ export default function CalculatorBody({ setExpressionCheck }) {
         setExpressionCheck(value);
     }
 
-    const buttonArray = [{ id: 'C', color: 'danger' }, { id: '-', color: 'primary' }, { id: '+', color: 'primary' }, { id: 'x', color: 'warning' }, 
+    const buttonArray = [{ value: 'C', color: 'danger' }, { value: '-', color: 'primary' }, { value: '+', color: 'primary' }, { value: 'x', color: 'warning' }, 
     { value: 7, color: 'secondary' },{ value: 8, color: 'secondary' },{ value: 9, color: 'secondary' },{ value: '*', color: 'primary' },
     { value: 4, color: 'secondary' },{ value: 5, color: 'secondary' },{ value: 6, color: 'secondary' },{ value: '/', color: 'primary' }, 
     { value: 1, color: 'secondary' }, { value: 2, color: 'secondary' },{ value: 3, color: 'secondary' },{ value: '%', color: 'primary' },
