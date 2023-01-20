@@ -36,9 +36,8 @@ export default function CalculatorBody({ setExpressionCheck }) {
             setOldValue(value);
         }else if(isNaN(value) && isNaN(oldValue) && (oldValue !=='x' | oldValue !== '=' | oldValue !== 'C' | value !=='x' | value !== '=' | value !== 'C')) 
         {
-            setExpressionCheck('x');
-            setExpressionCheck(value);
-
+            setExpressionCheck('x');//so i remove first
+            setExpressionCheck(value);//and now add new vales 
             console.log("more than one operator call at same time (errors)");
         }else{
             setExpressionCheck(value);
