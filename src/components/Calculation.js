@@ -8,17 +8,17 @@ export default function Calculate() {
 
     const [storeValue, setStoreValue] = useState('');
     let [expression, setExpression] = useState('');
-    const rapper = (value) => {
+    const setWrapper = (value) => {
 
         try {
 
-            if (value.includes("x")) { //backspace
+            if (value==="x") { //backspace
 
                 expression = expression.substring(0, expression.length - 1);
                 setExpression(expression);
                 console.log("backspace is press = " + expression);
             }
-            else if (value.includes("=")) { //for equal operator
+            else if (value==="=") { //for equal operator
                 console.log("equal operator  call");
                 // console.log(eval(expression));
                 setStoreValue(expression);
@@ -82,6 +82,11 @@ export default function Calculate() {
     }
     useEffect(() => {
         console.log("expression call here value is = " + expression);
+        if(expression.includes('--+'))
+        {
+            alert("something wrong happen")
+            expression= expression.replace('-');
+        }
 
     }, [expression])
 
@@ -90,7 +95,7 @@ export default function Calculate() {
         <Card style={{ width: '20rem', margin: '10rem' }}>
             <Card.Header>Calculator operators [+,-,/,x,%...]</Card.Header>
             <CalculatorResult result={expression} oldValue={storeValue} />
-            <CalculatorBody setExpressionCheck={rapper} />
+            <CalculatorBody setExpressionCheck={setWrapper} />
         </Card>
 
     )

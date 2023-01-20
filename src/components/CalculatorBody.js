@@ -4,22 +4,22 @@ import Card from 'react-bootstrap/Card';
 
 export default function CalculatorBody({ setExpressionCheck }) {
 
-    const onClickAction = (e) => {
+    const onClickAction = (value) => {
         console.log("onClickAction calling ");
-        setExpressionCheck(e);
+        setExpressionCheck(value);
     }
 
     const buttonArray = [{ id: 'C', color: 'danger' }, { id: '-', color: 'primary' }, { id: '+', color: 'primary' }, { id: 'x', color: 'warning' }, 
-    { id: 7, color: 'secondary' },{ id: 8, color: 'secondary' },{ id: 9, color: 'secondary' },{ id: '*', color: 'primary' },
-    { id: 4, color: 'secondary' },{ id: 5, color: 'secondary' },{ id: 6, color: 'secondary' },{ id: '/', color: 'primary' }, 
-    { id: 1, color: 'secondary' }, { id: 2, color: 'secondary' },{ id: 3, color: 'secondary' },{ id: '%', color: 'primary' },
-    { id: '.', color: 'secondary' },{ id: '0', color: 'secondary' },{ id: '00', color: 'secondary' },{ id: '=', color: 'success' },
+    { value: 7, color: 'secondary' },{ value: 8, color: 'secondary' },{ value: 9, color: 'secondary' },{ value: '*', color: 'primary' },
+    { value: 4, color: 'secondary' },{ value: 5, color: 'secondary' },{ value: 6, color: 'secondary' },{ value: '/', color: 'primary' }, 
+    { value: 1, color: 'secondary' }, { value: 2, color: 'secondary' },{ value: 3, color: 'secondary' },{ value: '%', color: 'primary' },
+    { value: '.', color: 'secondary' },{ value: '0', color: 'secondary' },{ value: '00', color: 'secondary' },{ value: '=', color: 'success' },
     
     ];
     return (
 
         <Card.Body style={{ padding: '1.5rem', border: '0.5px' }}>
-            {buttonArray.map((item, color) => <Button size='lg' key={item.id} onClick={() => onClickAction(`${item.id}`)} variant={item.color} style={{ margin: '0.6rem' }}>{item.id}</Button>)}        
+            {buttonArray.map((index) => <Button size='lg' key={index.value} onClick={() => onClickAction(`${index.value}`)} variant={index.color} style={{ margin: '0.6rem' }}>{index.value}</Button>)}        
         </Card.Body>
     )
 
