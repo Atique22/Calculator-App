@@ -22,21 +22,25 @@ export default function CalculatorBody({ setExpressionCheck }) {
     const [oldValue, setOldValue] = useState('');
 
     const onClickAction = (value) => {
-        setOldValue(value);
+        
         console.log("onClickAction calling ");
         console.log("previous value:"+oldValue);
         console.log("current value:"+value);
-        
+
         if(value==='C'|value==='x'|value==='='){
             setExpressionCheck(value);
-        }else if(isNaN(value) && isNaN(oldValue))
+            setOldValue(value);
+        }else if(oldValue ==='x' | oldValue === '=' | oldValue === 'C') 
         {
-            console.log("not a number");
+            setExpressionCheck(value);
+            setOldValue(value);
+        }else if(isNaN(value) && isNaN(oldValue) && (oldValue !=='x' | oldValue !== '=' | oldValue !== 'C' | value !=='x' | value !== '=' | value !== 'C')) 
+        {
+            console.log("more than one operator call at same time (errors)");
         }else{
             setExpressionCheck(value);
-        }
-
-       
+            setOldValue(value);
+        }      
     }
 
     const buttonArray = [{ value: 'C', color: 'danger' }, { value: '-', color: 'primary' }, { value: '+', color: 'primary' }, { value: 'x', color: 'warning' }, 
