@@ -8,39 +8,55 @@ export default function Calculate() {
 
     const [storeValue, setStoreValue] = useState('');
     let [expression, setExpression] = useState('');
+
+    useEffect(() => {
+        console.log("expression call here value is = " + expression);
+        inputActivity();
+    }, [expression]);
+
+    const inputActivity = () => {
+        console.log("inputActivity call");
+        // let expression = "This is the original string";
+        const pattern = /(\+\+)|(\-\+)|(\%\+)|(\/\+)|(\*\+)  |  (\+\*)|(\-\*)|(\%\*)|(\\\*)|(\*\*)  | (\+\%)|(\-\%)|(\%\%)|(\\\%)|(\*\%)  | (\+\\)|(\-\\)|(\%\\)|(\\\\)|(\*\\)  | (\+\-)|(\-\-)|(\%\-)|(\\\-)|(\*\-) /g;
+       expression = expression.replace(pattern, function (match) {
+        if ((match === "++") |(match === "-+") |(match === "*+") |(match === "\+") |(match === "%+")) return "+";
+        else if ((match === "+-") |(match === "--") |(match === "*-") |(match === "\-") |(match === "%-")) return "-";
+        else if ((match === "+%") |(match === "-%") |(match === "*%") |(match === "\%") |(match === "%%")) return "%";
+        else if ((match === "+*") |(match === "-*") |(match === "**") |(match === "\*") |(match === "%*")) return "*";
+        else if ((match === "+'\'") |(match === "-'\'") |(match === "*'\'") |(match === "\'\'") |(match === "%'\'")) return "'\'";
+            
+        });
+        console.log(expression);
+        setExpression(expression);
+    }
     const setWrapper = (value) => {
-                // Replace specific input here /\+|\-|\*|\%|\//
-                // expression = expression.replace(/\--|\+-|\%-|\*-|\/-/, '-');
-                expression = expression.replace(/\-+|\++|\%+|\*+|\/+/, '+');
-                // expression = expression.replace(/\-%|\+%|\%%|\*%|\/%/, '%');
-                // expression = expression.replace(/\-*|\+*|\%*|\**|\/*/, '*');
-                setExpression(expression);
+
         try {
 
-            if (value==="x") { //backspace
+            if (value === "x") { //backspace
 
                 expression = expression.substring(0, expression.length - 1);
                 setExpression(expression);
                 console.log("backspace is press = " + expression);
             }
-            else if (value==="=") { //for equal operator
+            else if (value === "=") { //for equal operator
                 console.log("equal operator  call");
                 // console.log(eval(expression));
                 setStoreValue(expression);
 
                 // Split input into an array of numbers and operators
                 var elements = expression.split(/\+|\-|\*|\%|\//);
-                console.log("elements :"+elements);
+                console.log("elements :" + elements);
                 var numbers = elements.map(Number);
-                console.log("number :"+numbers);
+                console.log("number :" + numbers);
                 var operators = expression.replace(/[\d\.]/g, '').split('');
-                console.log("operators :"+operators);
+                console.log("operators :" + operators);
                 var result = numbers.shift();
-                console.log("result :"+result);
+                console.log("result :" + result);
                 while (numbers.length > 0) {
                     var operator = operators.shift();
                     var number = numbers.shift();
-            
+
                     switch (operator) {
                         case '+':
                             result = result + number;
@@ -58,12 +74,12 @@ export default function Calculate() {
                             result = result / number;
                             break;
                         default:
-                            alert ('Invalid operator');
+                            alert('Invalid operator');
                     }
                 }
-                    setExpression(result);
-                
-            } else if (value==="C") { //for clear..
+                setExpression(result);
+
+            } else if (value === "C") { //for clear..
                 console.log("clear call");
                 // console.log(eval(expression));
                 setExpression('');
@@ -80,11 +96,7 @@ export default function Calculate() {
             alert("Please Enter a valid user input, error -> " + error);
         }
     }
-    useEffect(() => {
-        console.log("expression call here value is = " + expression);
 
-
-    }, [expression])
 
     return (
 
